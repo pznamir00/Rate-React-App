@@ -1,0 +1,25 @@
+footer{
+  background: #333;
+  color: #aaa;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+ul{
+  width: 200px;
+  border-right: solid 1px #444;
+}
+
+ul li a{
+  color: #888;
+}
+
+ul li a:hover{
+  color: #888;
+}
+
+#copy-rights{
+  float: right;
+  margin-top: -30px;
+  margin-right: 10px;
+}
