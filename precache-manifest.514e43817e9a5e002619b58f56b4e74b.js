@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "59ac82e619a6a7879521a1790c4f5bad",
+    "revision": "61d4990c972d8329a35ee8f2b764ccac",
     "url": "/Rate-React-App/index.html"
   },
   {
-    "revision": "6ef2e62074170d29560d",
-    "url": "/Rate-React-App/static/css/main.a01919b5.chunk.css"
+    "revision": "e37618cce10eb3b0b4cd",
+    "url": "/Rate-React-App/static/css/main.a587c4f2.chunk.css"
   },
   {
     "revision": "a1188c1f840345da1e96",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Rate-React-App/static/js/2.62c5a26a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6ef2e62074170d29560d",
-    "url": "/Rate-React-App/static/js/main.dd94fb34.chunk.js"
+    "revision": "e37618cce10eb3b0b4cd",
+    "url": "/Rate-React-App/static/js/main.7760efb2.chunk.js"
   },
   {
     "revision": "2ca54c5eeed4fa46f1e5",
