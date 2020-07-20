@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Result from './result';
 import Form from './form';
-import Calculator from './Calculator/calculator';
-import './index.css';
+import Calculator from './Calculator/index';
+import './style.scss';
 
 
 
@@ -15,10 +15,8 @@ class Home extends Component {
     }
 
     handleSelect = (e) => {
-        const val = e.target.value;
-        this.setState({
-            base: val
-        });
+        const  { value } = e.target;
+        this.setState({ base: value });
     }
 
     componentDidMount = () => {
@@ -32,19 +30,16 @@ class Home extends Component {
         if(prevState.base !== this.state.base){
             const API = `https://api.exchangeratesapi.io/latest?base=${this.state.base}`;
             fetch(API)
-                .then(res => {
-                    if(res.ok){
-                        return res.json();
-                    }
-                    else throw Error("Nie udało się pobrać danych");
-                })
-                .then(result => {
-                    this.setState({
-                        base: result.base,
-                        rates: result.rates,
-                    });
-                })
-                .catch(err => console.log("Nie udało się pobrać danych - " + err));
+            .then(res => {
+                if(res.ok) return res.json();
+                else throw Error("Failed to fetch data");
+            })
+            .then(result => {
+                this.setState({
+                    rates: result.rates,
+                });
+            })
+            .catch(err => console.log("Error - " + err));
         }
     }
 

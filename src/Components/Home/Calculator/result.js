@@ -1,8 +1,7 @@
 import React from 'react';
-import './calc.css';
 
 
-const ResultCalc = (props) => {
+const Result = (props) => {
     return (
       <p id="res">
         {props.res}
@@ -13,4 +12,4 @@ const ResultCalc = (props) => {
 
 
 
-export default ResultCalc;
+export default Result;

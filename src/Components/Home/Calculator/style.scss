@@ -1,0 +1,27 @@
+#res{
+  font-size: 25pt;
+  text-align: center;
+  margin-bottom: 100px;
+
+  &::before{
+    content: "= ";
+  }
+}
+
+#rate{
+  font-weight: bold;
+}
+
+.calc-form{
+  width: 300px;
+  margin: auto;
+  margin-top: 70px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+};
+
+.calc-label-form{
+  text-align: center;
+  color: #777;
+};

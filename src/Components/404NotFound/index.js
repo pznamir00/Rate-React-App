@@ -1,11 +1,9 @@
 import React from 'react';
-import './404.css'
+import './style.scss'
 
 
 const NotFound = () => {
-  return (
-    <h3 id="not-found">404 Not Found</h3>
-  );
+  return <h3 id="not-found">404 Not Found</h3>;
 }
 
 export default NotFound;
