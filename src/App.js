@@ -18,7 +18,7 @@ const App = () => {
                 <Header/>
                 <main>
                     <Switch>
-                        <Route exact path='/' component={Home} />
+                        <Route exact path={['/', '/Rate-React-App']} component={Home} />
                         <Route path='/historical' component={Historical} />
                         <Route path='/contact' component={Contact} />
                         <Route path='/about' component={About} />
