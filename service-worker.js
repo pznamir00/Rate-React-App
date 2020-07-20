@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Rate-React-App/precache-manifest.dc0acf12cefad54c6909e50f0d646e87.js"
+  "/Rate-React-App/precache-manifest.5e1f15fe98fbd0973583c332d1960691.js"
 );
 
 self.addEventListener('message', (event) => {

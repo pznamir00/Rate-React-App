@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Rate-React-App/static/css/main.a01919b5.chunk.css",
-    "main.js": "/Rate-React-App/static/js/main.f1b21383.chunk.js",
-    "main.js.map": "/Rate-React-App/static/js/main.f1b21383.chunk.js.map",
+    "main.js": "/Rate-React-App/static/js/main.dd94fb34.chunk.js",
+    "main.js.map": "/Rate-React-App/static/js/main.dd94fb34.chunk.js.map",
     "runtime-main.js": "/Rate-React-App/static/js/runtime-main.6a54bbdf.js",
     "runtime-main.js.map": "/Rate-React-App/static/js/runtime-main.6a54bbdf.js.map",
     "static/js/2.62c5a26a.chunk.js": "/Rate-React-App/static/js/2.62c5a26a.chunk.js",
     "static/js/2.62c5a26a.chunk.js.map": "/Rate-React-App/static/js/2.62c5a26a.chunk.js.map",
     "index.html": "/Rate-React-App/index.html",
-    "precache-manifest.dc0acf12cefad54c6909e50f0d646e87.js": "/Rate-React-App/precache-manifest.dc0acf12cefad54c6909e50f0d646e87.js",
+    "precache-manifest.5e1f15fe98fbd0973583c332d1960691.js": "/Rate-React-App/precache-manifest.5e1f15fe98fbd0973583c332d1960691.js",
     "service-worker.js": "/Rate-React-App/service-worker.js",
     "static/css/main.a01919b5.chunk.css.map": "/Rate-React-App/static/css/main.a01919b5.chunk.css.map",
     "static/js/2.62c5a26a.chunk.js.LICENSE.txt": "/Rate-React-App/static/js/2.62c5a26a.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.6a54bbdf.js",
     "static/js/2.62c5a26a.chunk.js",
     "static/css/main.a01919b5.chunk.css",
-    "static/js/main.f1b21383.chunk.js"
+    "static/js/main.dd94fb34.chunk.js"
   ]
 }
