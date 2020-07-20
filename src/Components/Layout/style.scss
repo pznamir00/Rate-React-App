@@ -19,6 +19,7 @@ header{
     margin-left: auto;
     margin-right: auto;
     margin-top: -7px;
+    text-align: center;
   }
 
   .header-link{
@@ -120,8 +121,8 @@ footer{
   }
 
   #copy-rights{
-    float: right;
-    margin-top: -30px;
-    margin-right: 10px;
+    background-color: #222;
+    text-align: center;
+    padding-top: 4px;
   }
 }

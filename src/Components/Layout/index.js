@@ -12,7 +12,7 @@ const Header = () => {
       <nav className="navbar-expand-xl navbar-light">
         <div className="container">
           <div className="row">
-            <Link to='/' id="logo" className="col-3 navbar-brand"><b>CHECK</b>RATE</Link>
+            <Link to='/' id="logo" className="col-6 col-xl-3 navbar-brand"><b>CHECK</b>RATE</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="dark-blue-text"><i className="fa fa-bars"></i></span>
