@@ -7,12 +7,17 @@ import './style.scss';
 
 class Calculator extends Component {
 
-    state = {
-      from: 'CAD',
-      to: 'CAD',
-      num: 0,
-      rates: {},
-      res: 0
+    constructor(){
+      super();
+      this.state = {
+        from: 'CAD',
+        to: 'CAD',
+        num: 0,
+        rates: {},
+        res: 0
+      };
+
+      this.reverse = this.reverse.bind(this);
     }
 
     handleChangeContent = async (e) => {
@@ -46,14 +51,24 @@ class Calculator extends Component {
         }
     }
 
+    async reverse(){
+      await this.setState({
+        from: this.state.to,
+        to: this.state.from
+      });
+    }
+
     render() {
         const { res } = this.state;
         const toRate = ' ' + this.state.to;
         return (
           <React.Fragment>
               <Form
-                  rates={this.props.rates}
-                  onChangeHandle={this.handleChangeContent}
+                from={this.state.from}
+                to={this.state.to}
+                rates={this.props.rates}
+                onChangeHandle={this.handleChangeContent}
+                reverse={this.reverse}
               />
               <Result
                 res={res}

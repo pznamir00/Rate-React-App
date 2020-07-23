@@ -5,9 +5,10 @@ import Historical from './Components/Historical/index.js';
 import Contact from './Components/Contact/index.js';
 import About from './Components/About/index.js';
 import NotFound from './Components/404NotFound/index.js';
-import { Header, Loader, Footer } from './Components/Layout/index.js';
+import Header from './Components/Layout/header.js';
+import Loader from './Components/Layout/loader.js';
+import Footer from './Components/Layout/footer.js';
 import './App.scss';
-
 
 
 const App = () => {

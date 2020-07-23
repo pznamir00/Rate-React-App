@@ -37,26 +37,30 @@ header{
     left: 15px;
   }
 
+  #sidebar{
+    position: absolute;
+    width: 300px;
+    height: 100vh;
+    left: -300px;
+    top: 59px;
+    margin: 0;
+    background: $bg-color-dark;
+    color: $special-color;
+    border-top: solid 1px $special-color;
+    justify-content: flex-start;
+
+    a{
+      padding: 15px 0px;
+      margin-top: -0.5px;
+      border-top: 0.5px solid $bg-color;
+      border-bottom: 0.5px solid $bg-color;
+      font-weight: bold;
+    }
+  }
+
   @media(max-width: 1200px){
-    #navbarSupportedContent{
-      background-color: $bg-color;
-      margin-top: -5px;
-      padding: 0 !important;
-    }
-
-    .row, .container{
-      width: 100vw;
-      padding: 0;
-      margin: 0;
-    }
-
     .header-link{
       display: block;
-      width: 100vw;
-      margin-left: -14px;
-      margin-top: 5px;
-      margin-bottom: 5px;
-      border-bottom: solid 0.5px #434345;
 
       &:hover{
         text-decoration: none;
