@@ -27,11 +27,13 @@ const Contact = props => {
           props.setAlert({ content: "Your message has been sent", color: "primary" });
         })
         .catch(error => console.log(error));
-      } else props.setAlert({
+      }
+      else props.setAlert({
           content: "Your email is invalid",
           color: "danger"
         });
-    } else props.setAlert({
+    }
+    else props.setAlert({
         content: "All fields are required",
         color: "danger"
       });

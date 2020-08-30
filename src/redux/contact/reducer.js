@@ -1,13 +1,15 @@
 import types from './types';
 
 
-const contactReducer = (state = {}, action) => {
+const contactReducer = (state = { alert: {} }, action) => {
   switch(action.type){
     case types.ALERT_SET:
       return {
         ...state,
-        content: action.alert.content,
-        color: action.alert.color
+        alert: {
+          content: action.alert.content,
+          color: action.alert.color
+        }
       }
     default:
       return state
