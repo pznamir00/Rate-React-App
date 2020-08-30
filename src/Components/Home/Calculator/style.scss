@@ -1,3 +1,6 @@
+@import '../../../_variables';
+
+
 #res{
   font-size: 25pt;
   text-align: center;
@@ -10,6 +13,7 @@
 
 #rate{
   font-weight: bold;
+  color: $special-color;
 }
 
 .calc-form{

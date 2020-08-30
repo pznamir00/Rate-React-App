@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Components/Home/index.js';
-import Historical from './Components/Historical/index.js';
-import Contact from './Components/Contact/index.js';
+import { HomeContainer } from './Components/Home/index.js';
+import { HistoricalContainer } from './Components/Historical/index.js';
+import { ContactContainer } from './Components/Contact/index.js';
 import About from './Components/About/index.js';
 import NotFound from './Components/404NotFound/index.js';
-import Header from './Components/Layout/header.js';
-import Loader from './Components/Layout/loader.js';
-import Footer from './Components/Layout/footer.js';
+import Header from './Components/Layout/Header';
+import Loader from './Components/Layout/Loader';
+import Footer from './Components/Layout/Footer';
 import './App.scss';
 
 
@@ -19,9 +19,9 @@ const App = () => {
                 <Header/>
                 <main>
                     <Switch>
-                        <Route exact path={['/', '/Rate-React-App']} component={Home} />
-                        <Route path='/historical' component={Historical} />
-                        <Route path='/contact' component={Contact} />
+                        <Route exact path={['/', '/Rate-React-App']} component={HomeContainer} />
+                        <Route path='/historical' component={HistoricalContainer} />
+                        <Route path='/contact' component={ContactContainer} />
                         <Route path='/about' component={About} />
                         <Route component={NotFound} />
                     </Switch>

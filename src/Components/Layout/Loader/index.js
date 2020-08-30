@@ -5,17 +5,13 @@ import './style.scss';
 
 const Loader = () => {
   const moveLoader = () => {
-    $('#loader').animate({
-      top: '-2000px',
-    }, 1200, function(){
-      $(document).remove('#loader');
-    });
+    $('#loader').fadeToggle();
   }
 
   window.onload = moveLoader;
   return (
     <div id="loader">
-      <i className="fa fa-money"></i>
+      <i className="fa fa-money flip-scale-up-hor"></i>
     </div>
   );
 }

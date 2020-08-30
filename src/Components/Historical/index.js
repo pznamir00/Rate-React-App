@@ -1,38 +1,27 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Form from './form';
 import Result from './result';
 import './style.scss';
 import axios from 'axios';
-
-
-const getTodayAsString = function(){
-  let today = new Date();
-  const day = String(today.getDate()).padStart(2, '0');
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const year = today.getFullYear();
-  today = year + '-' + month + '-' + day;
-  return today;
-};
+import { connect } from 'react-redux';
+import actions from '../../redux/historical/actions';
 
 
 
-const Historical = () => {
+const Historical = props => {
 
-    const [date, setDate] = useState(getTodayAsString());
-    const [rates, setRates] = useState({});
     const prevDate = useRef();
-
-    const handleDate = (e) => setDate(e.target.value);
+    const handleDate = (e) => props.setDate(e.target.value);
 
     useEffect(() => {
-      if(prevDate.current !== date){
-          axios.get(`https://api.exchangeratesapi.io/${date}`)
+      if(prevDate.current !== props.date){
+          axios.get(`https://api.exchangeratesapi.io/${props.date}`)
           .then(result => {
             if(result.status === 200){
-              setRates(result.data.rates);
-              prevDate.current = date;
+              props.fetchRates(result.data.rates);
+              prevDate.current = props.date;
             }
-            else throw new Error('p');
+            else throw new Error('error');
           })
           .catch(error => console.log(error));
       }
@@ -41,11 +30,11 @@ const Historical = () => {
     return (
         <React.Fragment>
             <Form
-              date={date}
+              date={props.date}
               handleChangeDate={handleDate}
             />
             <Result
-                rates={rates}
+                rates={props.rates}
             />
         </React.Fragment>
     );
@@ -53,4 +42,16 @@ const Historical = () => {
 
 
 
-export default Historical;
+const mapStateToProps = state => {
+  return {
+    date: state.historical.date,
+    rates: state.historical.rates
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  setDate: date => dispatch(actions.setDate(date)),
+  fetchRates: rates => dispatch(actions.fetchRates(rates))
+})
+
+export const HistoricalContainer = connect(mapStateToProps, mapDispatchToProps)(Historical)

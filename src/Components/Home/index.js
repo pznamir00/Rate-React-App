@@ -1,43 +1,36 @@
 import React, { Component } from 'react';
 import Result from './result';
 import Form from './form';
-import Calculator from './Calculator/index';
+import { CalculatorContainer } from './Calculator/index';
 import './style.scss';
+import { connect } from 'react-redux';
+import actions from '../../redux/home/actions';
 
 
 
 
 class Home extends Component {
 
-    state = {
-        base: "",
-        rates: {}
-    }
-
     handleSelect = (e) => {
-        const  { value } = e.target;
-        this.setState({ base: value });
+        const { value } = e.target;
+        this.props.setBase(value);
     }
 
     componentDidMount = () => {
         const defaultBase = "EUR";
-        this.setState({
-            base: defaultBase
-        });
+        this.props.setBase(defaultBase);
     }
 
-    componentDidUpdate = (prevProps, prevState) => {
-        if(prevState.base !== this.state.base){
-            const API = `https://api.exchangeratesapi.io/latest?base=${this.state.base}`;
+    componentDidUpdate = prevProps => {
+        if(prevProps.base !== this.props.base){
+            const API = `https://api.exchangeratesapi.io/latest?base=${this.props.base}`;
             fetch(API)
             .then(res => {
                 if(res.ok) return res.json();
                 else throw Error("Failed to fetch data");
             })
             .then(result => {
-                this.setState({
-                    rates: result.rates,
-                });
+                this.props.fetchRates(result.rates);
             })
             .catch(err => console.log("Error - " + err));
         }
@@ -46,22 +39,34 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Calculator
-                    base={this.state.base}
-                    rates={this.state.rates}
+                <CalculatorContainer
+                    ratesInstance={this.props.rates}
                 />
                 <hr/>
                 <Form
                     onSelect={this.handleSelect}
-                    base={this.state.base}
-                    rates={this.state.rates}
+                    rates={this.props.rates}
                 />
                 <Result
-                    rates={this.state.rates}
+                    rates={this.props.rates}
                 />
             </React.Fragment>
         );
     }
 }
 
-export default Home;
+
+
+const mapStateToProps = state => {
+  return {
+    base: state.home.base,
+    rates: state.home.rates
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  setBase: base => dispatch(actions.setBase(base)),
+  fetchRates: rates => dispatch(actions.fetchRates(rates))
+})
+
+export const HomeContainer = connect(mapStateToProps, mapDispatchToProps)(Home)

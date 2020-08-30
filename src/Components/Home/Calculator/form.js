@@ -1,7 +1,6 @@
-import React, { memo } from 'react';
+import React from 'react';
 
-
-const Form = memo(props => {
+const Form = props => {
     return (
         <form className="calc-form" onChange={props.onChangeHandle}>
           <h3 className="calc-label-form">Convert money</h3>
@@ -21,8 +20,6 @@ const Form = memo(props => {
             </select>
         </form>
     );
-});
-
-
+}
 
 export default Form;

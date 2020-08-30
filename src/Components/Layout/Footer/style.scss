@@ -1,0 +1,31 @@
+@import '../../../_variables';
+
+
+
+
+footer{
+  background: $bg-color-dark;
+  color: #aaa;
+  margin-top: 50px;
+  padding: 10px;
+
+  ul{
+    width: 200px;
+
+    li{
+      a{
+        color: $special-color;
+
+        &:hover{
+          opacity: 0.8;
+          color: $special-color;
+        }
+      }
+    }
+  }
+
+  #copy-rights{
+    text-align: center;
+    padding-top: 4px;
+  }
+}

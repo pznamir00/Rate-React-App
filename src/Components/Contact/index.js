@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as emailjs from 'emailjs-com';
 import Alert from 'react-bootstrap/Alert';
 import './style.scss';
+import { connect } from 'react-redux';
+import actions from '../../redux/contact/actions';
+const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-const Contact = () => {
-  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  const [alert, setAlert] = useState({});
+
+
+const Contact = props => {
+
   const submitHandle = async (e) => {
     e.preventDefault();
     if(e.target.email.value && e.target.title.value && e.target.message.value){
@@ -20,17 +24,24 @@ const Contact = () => {
           document.querySelector('input[name="email"]').value = "";
           document.querySelector('input[name="title"]').value = "";
           document.querySelector('textarea[name="message"]').value = "";
-          setAlert({ content: "Your message has been sent", color: "primary" });
+          props.setAlert({ content: "Your message has been sent", color: "primary" });
         })
         .catch(error => console.log(error));
-      } else setAlert({ content: "Your email is invalid", color: "danger" });
-    }   else setAlert({ content: "All fields are required", color: "danger" });
-  };
+      } else props.setAlert({
+          content: "Your email is invalid",
+          color: "danger"
+        });
+    } else props.setAlert({
+        content: "All fields are required",
+        color: "danger"
+      });
+  }
+
   return(
     <form id="contact-form" className="contact-form-cl" onSubmit={submitHandle}>
       <h2 className="mb-4 text-center">Contact with us</h2>
-      {alert &&
-        <Alert variant={alert.color} closeLabel="close">{alert.content}</Alert>
+      {props.alert &&
+        <Alert variant={props.alert.color} closeLabel="close">{props.alert.content}</Alert>
       }
       <input type="email" name="email" className="form-control" placeholder="e-mail"/>
       <br/>
@@ -45,4 +56,14 @@ const Contact = () => {
 
 
 
-export default Contact;
+const mapStateToProps = state => {
+  return {
+    alert: state.contact.alert
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  setAlert: alert => dispatch(actions.setAlert(alert))
+})
+
+export const ContactContainer = connect(mapStateToProps, mapDispatchToProps)(Contact)

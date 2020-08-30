@@ -1,0 +1,25 @@
+@import '../../../_variables';
+
+
+#sidebar{
+  position: absolute;
+  width: 300px;
+  height: 100vh;
+  left: -300px;
+  top: 59px;
+  margin: 0;
+  margin-left: 0;
+  background: $bg-color-dark;
+  color: $special-color;
+  border-top: solid 1px $special-color;
+  justify-content: flex-start;
+
+  a{
+    width: 100%;
+    padding: 15px 0px;
+    margin-top: -2px;
+    border-top: 2px groove $bg-color;
+    border-bottom: 2px groove $bg-color;
+    font-weight: bold;
+  }
+}
