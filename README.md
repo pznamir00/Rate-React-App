@@ -12,6 +12,7 @@
   <li>jQuery</li>
   <li>Bootstrap</li>
   <li>SASS</li>
+  <li>Redux</li>
 </ul>
 <hr>
 <p>
